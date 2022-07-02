@@ -1,4 +1,22 @@
-@import "bootstrap";
 @import "admin-lte";
 @import '@fortawesome/fontawesome-free';
 @import './admins/**';
+/*画面スクロール*/
+.table_sticky {
+  display: block;
+  overflow-y: scroll;
+  height: calc(100vh/1.5);
+  border:1px solid;
+  border-collapse: collapse;
+}
+.table_sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #3366cc;
+  border-top:#FFFFFF;
+}
+
+.m_index_width{
+  width: 220px;
+}

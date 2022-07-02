@@ -1,0 +1,57 @@
+<%= form_with url: users_article_path(@article), method: :patch, local: true do |f| %>
+  <p>投稿内容を編集してください</p>
+    <div class="form-group">
+      <div id='editor0'>
+        <div class="row">
+          <div class="col-5 m-1">
+            <div>
+              <textarea name="article[title]" id="n" class="form-control" rows="1" v-model='input' debounce='50'></textarea>
+            </div>
+          </div>
+          <div class="col-5 m-1 border">    
+            <div class="di_inline_t preview">
+              <div v-html='input | marked' style: :"width: 650px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='editor1'>
+        <div class="row">
+          <div class="col-5 m-1">
+            <div>
+              <textarea name="article[content]" id="n" class="form-control" rows="20" v-model='input' debounce='50'></textarea>
+            </div>
+          </div>
+          <div class="col-5 m-1 border">    
+            <div class="di_inline_t preview">
+              <div v-html='input | marked' style: :"width: 650px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%= f.submit %>
+<% end %>
+
+<script type="text/javascript">
+ window.onload = function() {
+  new Vue({
+    el: '#editor0',
+    data: {
+      input: '<%== j @article.title %>'
+    },
+    filters: {
+      marked: marked,
+    },
+  });
+  new Vue({
+    el: '#editor1',
+    data: {
+      input: '<%== j @article.content %>'
+    },
+    filters: {
+      marked: marked,
+    },
+  });
+ };
+</script>

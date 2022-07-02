@@ -61,7 +61,16 @@
           <%= link_to users_articles_path, class:"nav-link" do %>
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Notion
+              投稿一覧
+              <%# <span class="right badge badge-danger">New</span> %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_users_article_path(current_user), class:"nav-link" do %>
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              新規投稿
               <%# <span class="right badge badge-danger">New</span> %>
             </p>
           <% end %>
